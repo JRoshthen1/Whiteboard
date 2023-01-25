@@ -2,4 +2,4 @@
 
 run `index.html` with a live server.
 
-make a new branch when contributing..
+fork the code and open a pull request when contributing
