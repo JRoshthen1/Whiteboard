@@ -1,7 +1,5 @@
 let strokeColor = ""
 
-
-
 window.addEventListener("load", () => {
     const canvas = document.querySelector('#canvas')
     const context = canvas.getContext('2d')
@@ -9,8 +7,16 @@ window.addEventListener("load", () => {
     // Resizing 
 
     function resizeCanvas() {
-        canvas.height = window.innerHeight - 6
-        canvas.width = window.innerWidth - 50
+       
+        if(canvas.width <= 600){
+            canvas.height = window.innerHeight - 55
+            canvas.width = window.innerWidth - 4
+        }else{
+            canvas.height = window.innerHeight - 4
+            canvas.width = window.innerWidth - 53
+        }
+
+
         window.addEventListener('resize', resizeCanvas)
     }
     resizeCanvas()
@@ -18,16 +24,21 @@ window.addEventListener("load", () => {
     let painting = false
 
     //Styling variables
-    const cl =  document.getElementById("cl")
+    const clsw =  document.getElementById("color-switch-text")
     const colors = [...document.querySelectorAll('.color')]
     colors.map(color => color.onclick = function () {
         strokeColor = color.value;
-       cl.innerHTML = `<h1 id='p' style="color: ${strokeColor};">${strokeColor}</h1>`
-       setTimeout(() => {cl.removeChild(document.getElementById('p'));}, 1000);
+       clsw.innerHTML = `<h1 id='TemporaryHeading' style="color: ${strokeColor};">${strokeColor}</h1>`
+       //setTimeout(() => {clsw.removeChild(document.getElementById('TemporaryHeading'));}, 1000);
+
+       setTimeout(() => {
+        document.getElementById('TemporaryHeading').style.animation = "fadeOut 1s ease-in-out";
+        }, 1000 );
+        document.getElementById('TemporaryHeading').addEventListener('animationend', function(){
+            clsw.removeChild(document.getElementById('TemporaryHeading'));
+         });
 
     })
-   //document.querySelector('#button-red').onclick = function () { strokeColor = "red"; console.log(strokeColor) }
-
 
     function startPosition(e) {
         painting = true
@@ -51,9 +62,9 @@ window.addEventListener("load", () => {
     }
 
 
-    canvas.addEventListener("mousedown", startPosition)
-    canvas.addEventListener("mouseup", finishedPosition)
-    canvas.addEventListener("mousemove", draw)
+    canvas.addEventListener("mousedown" || "touchstart", startPosition)
+    canvas.addEventListener("mouseup" || "touchend", finishedPosition)
+    canvas.addEventListener("mousemove" || "touchmove", draw)
 
 
 

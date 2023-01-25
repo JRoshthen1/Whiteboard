@@ -1,7 +1,15 @@
-*{margin:0; padding:0; box-sizing: border-box;}
+*{margin:0; padding:0; box-sizing: border-box; font-family: 'Karla', sans-serif;}
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+
+
 
 #canvas{
-    border: 2px solid black;
+    border: 2px solid rgb(161, 161, 161);
+}
+
+body{
+    display: flex; align-items: center;
 }
 section{
     display: flex;
@@ -13,13 +21,30 @@ section{
     position: fixed;
     right: 0;
     top: 0;
+    box-shadow: 3px 3px 5px 6px #ccc;
+
 }
+
 .color{
     width: 40px;
     height: 40px;
     border: 1px solid black;
 }
 
+#color-switch-text{
+    position: fixed; top: 0%; right: 50%;
+    stroke: 1px solid black;
+}
+
+
+/* TEMP HEADING ANIMATION */
+#TemporaryHeading {
+    animation: fadeOut 1s ease-in-out;
+}
+@keyframes fadeOut {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
 
 
 .red{background-color: red;}
@@ -28,3 +53,24 @@ section{
 .black{background-color: black;}
 .yellow{background-color: yellow;}
 .eraser{background-color: white}
+
+
+@media only screen and (max-width: 600px) {
+    section{ 
+        position: absolute;
+        top: 95%;
+        right: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content:space-evenly;
+        align-items: center;
+        height: 40px !important; 
+        width: 100vw;
+        box-shadow: none;
+
+
+    }
+    #color-switch-text{
+        position: fixed; top: 0; right: 50%;
+    }
+  }
