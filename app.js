@@ -11,7 +11,8 @@ window.addEventListener("load", () => {
         if(canvas.width <= 600){
             canvas.height = window.innerHeight - 55
             canvas.width = window.innerWidth - 4
-        }else{
+        }
+        else{
             canvas.height = window.innerHeight - 4
             canvas.width = window.innerWidth - 53
         }
@@ -28,14 +29,13 @@ window.addEventListener("load", () => {
     const colors = [...document.querySelectorAll('.color')]
     colors.map(color => color.onclick = function () {
         strokeColor = color.value;
-       clsw.innerHTML = `<h1 id='TemporaryHeading' style="color: ${strokeColor};">${strokeColor}</h1>`
-       //setTimeout(() => {clsw.removeChild(document.getElementById('TemporaryHeading'));}, 1000);
-
-       setTimeout(() => {
-        document.getElementById('TemporaryHeading').style.animation = "fadeOut 1s ease-in-out";
-        }, 1000 );
-        document.getElementById('TemporaryHeading').addEventListener('animationend', function(){
-            clsw.removeChild(document.getElementById('TemporaryHeading'));
+        clsw.innerHTML = `<h1 id='TemporaryHeading' style="color: ${strokeColor};">${strokeColor}</h1>`
+        let temph1 = document.getElementById('TemporaryHeading')
+        setTimeout(() => {
+        temph1.style.animation = "fadeOut 1s ease-in-out";
+            }, 1000 );
+        temph1.addEventListener('animationend', function(){
+            clsw.removeChild(temph1);
          });
 
     })

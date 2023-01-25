@@ -21,8 +21,6 @@ section{
     position: fixed;
     right: 0;
     top: 0;
-    box-shadow: 3px 3px 5px 6px #ccc;
-
 }
 
 .color{
@@ -33,7 +31,8 @@ section{
 
 #color-switch-text{
     position: fixed; top: 0%; right: 50%;
-    stroke: 1px solid black;
+    -webkit-text-stroke: 0.5px rgb(69, 69, 69);
+
 }
 
 
