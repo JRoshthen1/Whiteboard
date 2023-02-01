@@ -7,7 +7,6 @@ window.addEventListener("load", () => {
     // Resizing 
 
     function resizeCanvas() {
-       
         if(canvas.width <= 600){
             canvas.height = window.innerHeight - 55
             canvas.width = window.innerWidth - 4
@@ -16,11 +15,13 @@ window.addEventListener("load", () => {
             canvas.height = window.innerHeight - 4
             canvas.width = window.innerWidth - 53
         }
-
-
-        window.addEventListener('resize', resizeCanvas)
     }
+    window.addEventListener('resize', resizeCanvas)
     resizeCanvas()
+    window.addEventListener('load', resizeCanvas)
+    resizeCanvas()
+    // I really do not understand why i have to call the function twice, after each eventlistener.
+
 
     let painting = false
 
